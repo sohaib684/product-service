@@ -11,31 +11,14 @@ public class Size {
     private String size;
     private String quantity;
 
-//    @ManyToOne @JoinColumn(name= "brand_id")
-//    private Brand brand;
+    @ManyToOne
+    @JoinColumn(name = "brands_id")
+    private Brand brand;
 
-    public Integer getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "brands_id")
+    private Brand brands;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
 }
 

@@ -21,24 +21,15 @@ import java.util.Set;
     private Integer id;
     private String name;
 
-    public void setSubCategory(SubCategory subCategory) {
-        this.subCategory = subCategory;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Brand> brand = new LinkedHashSet<>();
+
+    public Set<Brand> getBrand() {
+        return brand;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setBrand(Set<Brand> brand) {
+        this.brand = brand;
     }
 }
 

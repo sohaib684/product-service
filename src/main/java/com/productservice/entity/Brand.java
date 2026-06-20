@@ -19,30 +19,16 @@ public class Brand {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @OneToMany(mappedBy = "brand" ,  cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(mappedBy = "brands" ,  cascade = CascadeType.ALL , orphanRemoval = true)
     private Set<Size> sizes = new LinkedHashSet<>();
 
-    public Integer getId() {
-        return id;
-    }
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "size_id")
+    private Size size;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Image> images = new LinkedHashSet<>();
 
-    public String getName() {
-        return name;
-    }
+ }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-}

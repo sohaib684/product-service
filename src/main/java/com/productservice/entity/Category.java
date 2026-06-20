@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity @Table(name ="category")
     @Data @NoArgsConstructor
@@ -18,4 +20,8 @@ import java.util.List;
 
       @OneToMany(mappedBy ="category" , cascade = CascadeType.ALL)
       private List<SubCategory> subCategories;
-  }
+
+  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<SubCategory> sub_Categories = new LinkedHashSet<>();
+
+}
